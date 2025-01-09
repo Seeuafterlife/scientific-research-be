@@ -39,7 +39,7 @@ const handleFileUpload = (req, uploadBasePath = '/upload') => {
         return null; // Không có file nào được upload
     }
     // Trả về đường dẫn file tương đối
-    return `http://localhost:5000/${uploadBasePath}/${req.file.filename}`;
+    return `https://scientific-research-be1.vercel.app//${uploadBasePath}/${req.file.filename}`;
 };
 exports.handleFileUpload = handleFileUpload;
 /**

@@ -195,7 +195,7 @@ export class ResearchController {
             const newFilePath = handleFileUpload(req, "/upload/research");
             if (newFilePath) {
                 if (existingResearch.image) {
-                    const absoluteOldFilePath = path.join(__dirname, "../../public", existingResearch.image.replace("http://localhost:5000", ""));
+                    const absoluteOldFilePath = path.join(__dirname, "../../public", existingResearch.image.replace("https://scientific-research-be1.vercel.app/", ""));
                     deleteFile(absoluteOldFilePath); // Xóa ảnh cũ
                 }
                 req.body.image = newFilePath; // Cập nhật đường dẫn ảnh mới
@@ -249,7 +249,7 @@ export class ResearchController {
                 const absoluteFilePath = path.join(
                     __dirname,
                     "../../public",
-                    research.image.replace("http://localhost:5000", "")
+                    research.image.replace("https://scientific-research-be1.vercel.app/", "")
                 );
 
                 deleteFile(absoluteFilePath);

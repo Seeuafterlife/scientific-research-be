@@ -175,7 +175,7 @@ class ResearchController {
                 const newFilePath = (0, upload_image_1.handleFileUpload)(req, "/upload/research");
                 if (newFilePath) {
                     if (existingResearch.image) {
-                        const absoluteOldFilePath = path_1.default.join(__dirname, "../../public", existingResearch.image.replace("http://localhost:5000", ""));
+                        const absoluteOldFilePath = path_1.default.join(__dirname, "../../public", existingResearch.image.replace("https://scientific-research-be1.vercel.app/", ""));
                         (0, upload_image_1.deleteFile)(absoluteOldFilePath); // Xóa ảnh cũ
                     }
                     req.body.image = newFilePath; // Cập nhật đường dẫn ảnh mới
@@ -221,7 +221,7 @@ class ResearchController {
                 }
                 // Xóa file ảnh nếu tồn tại
                 if (research.image) {
-                    const absoluteFilePath = path_1.default.join(__dirname, "../../public", research.image.replace("http://localhost:5000", ""));
+                    const absoluteFilePath = path_1.default.join(__dirname, "../../public", research.image.replace("https://scientific-research-be1.vercel.app/", ""));
                     (0, upload_image_1.deleteFile)(absoluteFilePath);
                 }
                 // Xóa tài liệu nghiên cứu khỏi cơ sở dữ liệu

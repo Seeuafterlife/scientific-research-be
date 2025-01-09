@@ -102,7 +102,7 @@ class UserController {
                 let image;
                 if (newFilePath) {
                     if (user.image) {
-                        const absoluteOldFilePath = path_1.default.join(__dirname, "../../public", user.image.replace("http://localhost:5000", ""));
+                        const absoluteOldFilePath = path_1.default.join(__dirname, "../../public", user.image.replace("https://scientific-research-be1.vercel.app/", ""));
                         (0, upload_image_1.deleteFile)(absoluteOldFilePath); // Xóa ảnh cũ
                     }
                     image = newFilePath; // Cập nhật đường dẫn ảnh mới

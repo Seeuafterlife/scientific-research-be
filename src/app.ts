@@ -11,11 +11,22 @@ import { RatingController } from "./controllers/rating-controller";
 
 const app = express();
 const upload = multer();
+const allowedOrigins = [
+    "http://localhost:3000", // Localhost cho phát triển
+    "https://scientific-research-frontend.vercel.app" // Frontend đã deploy trên Vercel
+];
 
 app.use(cors({
-    origin: "http://localhost:3000", // URL client được phép truy cập
+    origin: function (origin, callback) {
+        // Kiểm tra nếu origin nằm trong danh sách được phép
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"], // Các phương thức được phép
-    credentials: false // Nếu cần gửi cookie hoặc thông tin xác thực
+    credentials: true // Nếu cần gửi cookie hoặc thông tin xác thực
 }));
 
 app.use(express.json());
